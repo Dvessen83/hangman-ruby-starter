@@ -1,9 +1,10 @@
 require File.expand_path('../random_word', __FILE__)
+require File.expand_path('../visuals', __FILE__)
 
 class Hangman
     def initialize
         @random_word = RandomWord.new
-        @bad_guesses_left = 2
+        @bad_guesses_left = 10
     end
 
     # Welcome message
@@ -80,10 +81,11 @@ class Hangman
       @bad_guesses_left -= 1
       if @bad_guesses_left == 0
         puts "Wrong answer again."
-        puts "Game over!"
+        Visuals.new.game_over
         exit
       else
         puts "Bad choice! Guesses left before you hang: #{@bad_guesses_left}."
+        Visuals.new.gallow(@bad_guesses_left)
       end
     end
 
