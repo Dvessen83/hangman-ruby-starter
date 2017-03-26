@@ -8,6 +8,7 @@ class RandomWord
   end
 
   def positions_for(characters: [])
+
     # for you to implement :)
   end
 end
